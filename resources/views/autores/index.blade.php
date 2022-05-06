@@ -1,37 +1,35 @@
 @extends('layout.template')
 
-@section('title', 'Lista de editoriales')
+@section('title', 'Lista de autores')
 
 @section('content')
     <div class="row">
-        <h3>Lista de editoriales</h3>
+        <h3>Lista de autores</h3>
     </div>
     <div class="row">
         <div class="col-md-10">
-            <a type="button" class="btn btn-primary btn-md" href="{{ route('editoriales.create') }}"> Nuevo editorial</a>
+            <a type="button" class="btn btn-primary btn-md" href="{{ route('autores.create') }}"> Nuevo autor</a>
             <br><br>
             <table class="table table-striped table-bordered table-hover" id="tabla">
                 <thead>
                     <tr>
-                        <th>Codigo del editorial</th>
-                        <th>Nombre del editorial</th>
-                        <th>Contacto</th>
-                        <th>Telefono</th>
+                        <th>Codigo del autor</th>
+                        <th>Nombre del autor</th>
+                        <th>Nacionalidad</th>
                         <th>Operaciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($editoriales as $editorial)
+                    @foreach ($autores as $autor)
                         <tr>
-                            <td>{{ $editorial->codigo_editorial }}</td>
-                            <td>{{ $editorial->nombre_editorial }}</td>
-                            <td>{{ $editorial->contacto }}</td>
-                            <td>{{ $editorial->telefono }}</td>
+                            <td>{{ $autor->codigo_autor }}</td>
+                            <td>{{ $autor->nombre_autor }}</td>
+                            <td>{{ $autor->nacionalidad }}</td>
                             <td>
                                 <a style="cursor: pointer; text-decoration: none;" class="btn-sm btn-danger deleteOpt"
-                                    data-href="{{ route('editoriales.destroy', $editorial->id) }}">Eliminar</a>
+                                    data-href="{{ route('autores.destroy', $autor->id) }}">Eliminar</a>
                                 <a style="text-decoration: none;" class="btn-sm btn-success"
-                                    href="{{ route('editoriales.edit', $editorial->id) }}">Editar</a>
+                                    href="{{ route('autores.edit', $autor->id) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
